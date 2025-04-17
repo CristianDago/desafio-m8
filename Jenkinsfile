@@ -1,11 +1,11 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/CristianDago/desafio-m8'
-      }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
     }
-  }
 }
