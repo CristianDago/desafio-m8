@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/tu-usuario/task-api.git'
+        git 'https://github.com/CristianDago/desafio-m8'
       }
     }
   }
