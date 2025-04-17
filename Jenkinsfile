@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'task-api'
-        DOCKER_TAG = 'task-api'
-        DOCKER_REGISTRY = 'docker.io'
+        DOCKER_IMAGE = 'task-api'  
+        DOCKER_TAG = 'latest'           
+        DOCKER_REGISTRY = 'docker.io'   
     }
 
     stages {
@@ -32,8 +32,7 @@ pipeline {
             steps {
                 script {
                     echo 'Building Docker image...'
-                    // Construir la imagen Docker
-                    bat 'docker build -t ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:${DOCKER_TAG} .'
+                    bat "docker build -t ${env.DOCKER_REGISTRY}/${env.DOCKER_IMAGE}:${env.DOCKER_TAG} ."
                 }
             }
         }
@@ -41,7 +40,6 @@ pipeline {
 
     post {
         always {
-          
             echo 'Cleaning up...'
         }
     }
